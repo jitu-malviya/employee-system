@@ -1,0 +1,100 @@
+<div class="dialog-header">
+    <h3>{{title}}</h3>
+</div>
+<mat-divider></mat-divider>
+<div class="dialog-body-content">
+    <form class="example-form" [formGroup]="form" (ngSubmit)="registeEmployee()">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Full Name:</mat-label>
+            <input matInput placeholder="enter your name" formControlName="name" required="">
+            <mat-error *ngIf="form.get('name')?.invalid || form.get('name')?.dirty || form.get('name')?.touched"> Enter
+                full name</mat-error>
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>mobile number:</mat-label>
+            <input matInput placeholder="enter your mobile" formControlName="mobile" required="">
+            <mat-error *ngIf="form.get('mobile')?.invalid || form.get('mobile')?.dirty || form.get('mobile')?.touched">
+                Enter mobile number</mat-error>
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label> email:</mat-label>
+            <input matInput placeholder="xyz@gmail.com" formControlName="email" required="">
+            <mat-error *ngIf="form.get('email')?.invalid || form.get('email')?.dirty || form.get('email')?.touched">
+                Enter email address</mat-error>
+
+        </mat-form-field>
+        <br>
+        <mat-radio-group class="example-full-width" area-label="select a gender" formControlName="gender">
+            <mat-label>Select An Options</mat-label>
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+            <mat-radio-button value="other">Other</mat-radio-button>
+        </mat-radio-group>
+        <br>
+
+        <mat-form-field appearance="outline" class="example-full-width" color="accent">
+            <mat-label>Choose a birthdate date</mat-label>
+            <input matInput [matDatepicker]="datepicker" formControlName="birthdate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker>
+                <mat-datepicker-actions>
+                    <button mat-button matDatepickerCancel>Cancel</button>
+                    <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                </mat-datepicker-actions>
+            </mat-datepicker>
+            <mat-error
+                *ngIf="form.get('birthdate')?.invalid || form.get('birthdate')?.dirty || form.get('birthdate')?.touched">
+                Enter birthdate </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="example-full-width" color="accent">
+            <mat-label>Choose a joindate</mat-label>
+            <input matInput [matDatepicker]="datepicker2"  formControlName="joindate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="datepicker2"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker2>
+                <mat-datepicker-actions>
+                    <button mat-button matDatepickerCancel>Cancel</button>
+                    <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                </mat-datepicker-actions>
+            </mat-datepicker>
+            <mat-error
+                *ngIf="form.get('joindate')?.invalid || form.get('joindate')?.dirty || form.get('joindate')?.touched">
+                Enter joindate </mat-error>
+        </mat-form-field>
+
+
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>qualification:</mat-label>
+            <input matInput placeholder="enter qualification" formControlName="qualification" required="">
+            <mat-error
+                *ngIf="form.get('qualification')?.invalid || form.get('qualification')?.dirty || form.get('qualification')?.touched">
+                Enter qualification</mat-error>
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>department:</mat-label>
+            <mat-select formControlName="department" required="">
+                <mat-option *ngFor="let department of departments" [value]="department">
+                    {{department}}
+                </mat-option>
+                <mat-error
+                    *ngIf="form.get('department')?.invalid || form.get('department')?.dirty || form.get('department')?.touched">
+                </mat-error>
+            </mat-select>
+        </mat-form-field>
+
+    </form>
+
+</div>
+<div class="dialog-footer">
+    <div class="button-group">
+        <button mat-raised-button color="warn" (click)="registeEmployee()" [disabled]="form.invalid"> Save</button>
+
+        <button mat-raised-button color="primary" (click)="cancelEmployee()">Delete</button>
+
+    </div>
+</div>

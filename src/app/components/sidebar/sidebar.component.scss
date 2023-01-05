@@ -1,0 +1,30 @@
+.toolbar-item-spacer {
+    flex: 1 1 auto;
+}
+
+.app-container {
+    height: 90%;
+    margin: 0;
+}  
+.app-sidenav {
+    width: 230px;
+}
+.app-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+::ng-deep{
+    .mdc-list-item__primary-text{
+
+        display: flex;
+        gap: 10px;
+    }
+}
+.mat-list-item{
+    color: skyblue;
+}
+.active{
+    background-color: rgb(32, 207, 255);
+}

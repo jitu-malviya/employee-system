@@ -1,0 +1,70 @@
+
+h2#mat-mdc-dialog-title-0 {
+    width: 112vh;
+    height: -12vh;
+    overflow: auto;
+}
+.cdk-global-overlay-wrapper{
+
+    min-height: 600px!important;
+    overflow-x: auto!important;
+}
+::ng-deep{
+    .mat-mdc-dialog-container .mdc-dialog__surface{
+        height: 50%!important;
+        width: 50%!important;
+        overflow: hidden;
+    }
+}
+
+.dialog-header
+{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+}
+
+.dialog-body-content{
+
+    padding: 15px;
+    overflow: auto;
+    height: 60vh;
+    
+
+}
+.dialog-footer{
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .button-group{
+    display: flex;
+        gap: 10px;
+    }
+
+}
+
+
+
+.mat-form-field{
+    width: 70%;
+}
+.example-form-field {
+    margin-right: 20px;
+  }
+.mat-elevation-z8{
+    max-width: 70px;
+}
+.example-full-width{
+    width: 100%;
+}
+.main{
+   padding: 44px;
+}
+
+.mat-mdc-dialog-surface.mdc-dialog__surface {
+    padding: 38px;
+}
