@@ -43,6 +43,7 @@ export class AddemployeeComponent {
       birthdate: ['', [Validators.required]],
       joindate: ['', [Validators.required]],
       qualification: ['', [Validators.required]],
+      
 
     })
   }
