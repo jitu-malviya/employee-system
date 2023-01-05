@@ -16,7 +16,7 @@ import { MatSort } from '@angular/material/sort';
 export class CompanyComponent {
   employeeArr: Employee[] = [];
 
-  displayedColumns: string[] = ['name', 'mobile', 'email', 'gender','department','birthdate', 'joindate', 'qualification'];
+  displayedColumns: string[] = ['name', 'mobile', 'email', 'gender','department', 'joindate', 'qualification', 'action'];
   dataSource!: MatTableDataSource<Employee>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -37,7 +37,8 @@ export class CompanyComponent {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = {
-      title: 'Employee Attendance List'
+      title: 'Employee Attendance List',
+      buttonName: 'Register'
     }
     const dialogRef = this.dialog.open(AddemployeeComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(data => {
@@ -45,6 +46,27 @@ export class CompanyComponent {
         // console.log("Employee Attendance List: ", data);
         this.dataApi.addEmployee(data);
         this.openSnackBar("Registration of Employee is success.", "OK");
+      }
+    })
+  }
+
+  editEmployee(row:any) {
+    if(row.id == null || row.name == null){
+      return;
+    }
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = row;
+    dialogConfig.data.title ="Edit Employee";
+    dialogConfig.data.buttonName ="update";
+    dialogConfig.data.birthdate = row.birthdate.toDate();
+    const dialogRef = this.dialog.open(AddemployeeComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(data => {
+      if (data) {
+        // console.log("Employee Attendance List: ", data);
+        this.dataApi.updateEmployee(data);
+        this.openSnackBar(" Employee is  updated  successfully.", "OK");
       }
     })
   }

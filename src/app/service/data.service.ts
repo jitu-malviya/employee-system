@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Employee } from './interface/employee';
@@ -23,7 +23,8 @@ export class DataService {
   }
   //update employee
   updateEmployee(employee: Employee) {
-    this.deleteEmployee(employee);
-    this.addEmployee(employee);
+    // this.deleteEmployee(employee);
+    // this.addEmployee(employee);
+    return this.afs.doc('/Employees/'  + employee.id).update(employee);
   }
 }

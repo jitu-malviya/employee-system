@@ -8,8 +8,8 @@ export interface Employee {
     email : string;
     gender : string;
     department : string;
-    birthdate : Date;
     joindate : Date;
     qualification: string;
+    buttonName:string;
   
 }
