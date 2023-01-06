@@ -1,3 +1,4 @@
+import { DeleteEmployeeComponent } from './components/delete-employee/delete-employee.component';
 import { AddemployeeComponent } from './components/addemployee/addemployee.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { EmployeeComponent } from './components/employee/employee.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'employee', component: EmployeeComponent},
   {path: 'company', component: CompanyComponent},
   {path: 'addemployee', component: AddemployeeComponent},
+  {path: 'deleteemployee', component: DeleteEmployeeComponent},
 ]}
 ];
 

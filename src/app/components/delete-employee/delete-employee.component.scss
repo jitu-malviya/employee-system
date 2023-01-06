@@ -1,0 +1,21 @@
+.mat-dialog-content{
+    padding: 11px;
+    .p{
+        padding: 11px;
+
+    }
+ 
+
+}
+
+.dialog-footer{
+    padding: 15px;
+    display: flex;
+       align-items: center;
+
+    .button-group{
+    display: flex;
+        gap: 10px;
+    }
+
+}

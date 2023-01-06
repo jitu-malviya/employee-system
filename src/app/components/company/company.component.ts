@@ -1,3 +1,4 @@
+import { DeleteEmployeeComponent } from './../delete-employee/delete-employee.component';
 import { Employee } from './../../service/interface/employee';
 import { DataService } from './../../service/data.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -16,7 +17,7 @@ import { MatSort } from '@angular/material/sort';
 export class CompanyComponent {
   employeeArr: Employee[] = [];
 
-  displayedColumns: string[] = ['name', 'mobile', 'email', 'gender','department', 'joindate', 'qualification', 'action'];
+  displayedColumns: string[] = ['id','name', 'mobile', 'email', 'gender','department', 'joindate', 'qualification', 'action'];
   dataSource!: MatTableDataSource<Employee>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -49,6 +50,23 @@ export class CompanyComponent {
       }
     })
   }
+  deleteEmployee(row: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      title: 'Delete  Employee',
+      employeeName: 'employee'
+    }
+    const dialogRef = this.dialog.open(DeleteEmployeeComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(data => {
+      if (data) {
+        // console.log("Employee Attendance List: ", data);
+        this.dataApi.deleteEmployee(row.id);
+        this.openSnackBar(" Employee Deleted success.", "OK");
+      }
+    })
+  }
 
   editEmployee(row:any) {
     if(row.id == null || row.name == null){
@@ -60,9 +78,9 @@ export class CompanyComponent {
     dialogConfig.data = row;
     dialogConfig.data.title ="Edit Employee";
     dialogConfig.data.buttonName ="update";
-    dialogConfig.data.birthdate = row.birthdate.toDate();
+    // dialogConfig.data.joindate = row.joindate.toDate();
     const dialogRef = this.dialog.open(AddemployeeComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(data => {
+    dialogRef.afterClosed().subscribe(data => { 
       if (data) {
         // console.log("Employee Attendance List: ", data);
         this.dataApi.updateEmployee(data);

@@ -1,0 +1,11 @@
+<h1 mat-dialog-title> {{title}}</h1>
+<div class=" mat-dialog-content">
+    <p>Are you sure you want to delete {{employeeName}}?</p>
+
+</div>
+<div class="dialog-footer">
+    <div class="button-group">
+        <button mat-raised-button color="primary" (click)="close()">No Thanks</button>
+        <button mat-raised-button color="accent" (click)="delete()">Delete</button>
+    </div>
+</div>

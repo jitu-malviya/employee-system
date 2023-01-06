@@ -5,12 +5,18 @@
 <div class="dialog-body-content">
     <form class="example-form" [formGroup]="form" (ngSubmit)="registeEmployee()">
         <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>ID:</mat-label>
+            <input matInput placeholder="enter your Id" formControlName="id" required="">
+            <mat-error *ngIf="form.get('id')?.invalid || form.get('id')?.dirty || form.get('id')?.touched"> Enter
+                full id</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Full Name:</mat-label>
             <input matInput placeholder="enter your name" formControlName="name" required="">
             <mat-error *ngIf="form.get('name')?.invalid || form.get('name')?.dirty || form.get('name')?.touched"> Enter
                 full name</mat-error>
-
         </mat-form-field>
+
         <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>mobile number:</mat-label>
             <input matInput placeholder="enter your mobile" formControlName="mobile" required="">
@@ -52,7 +58,7 @@
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>qualification:</mat-label>
-            <mat-select formControlName="department" required="">
+            <mat-select formControlName="qualification" required="">
                 <mat-option *ngFor="let qualification of qualifications" [value]="qualification">
                     {{qualification}}
                 </mat-option>

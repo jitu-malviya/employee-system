@@ -18,13 +18,13 @@ export class DataService {
   }
 
   // delete employee
-  deleteEmployee(employee: Employee) {
-    return this.afs.doc('/Employees/' + employee.id).delete();
+  deleteEmployee(id: string) {
+    return this.afs.doc('/Employees/' +id).delete();
   }
   //update employee
   updateEmployee(employee: Employee) {
     // this.deleteEmployee(employee);
     // this.addEmployee(employee);
-    return this.afs.doc('/Employees/'  + employee.id).update(employee);
+    return this.afs.doc('/Employees/'  + employee.id ).update(employee);
   }
 }
