@@ -1,8 +1,9 @@
 .mat-dialog-content{
     padding: 11px;
     .p{
-        padding: 11px;
-
+        padding: 28px;
+        text-align: center;
+        font-size: 26px;
     }
  
 
@@ -11,11 +12,18 @@
 .dialog-footer{
     padding: 15px;
     display: flex;
-       align-items: center;
+    justify-content: flex-end;
 
     .button-group{
     display: flex;
         gap: 10px;
+        
     }
 
+}
+h1#mat-mdc-dialog-title-1 {
+    color: red;
+    font-size: 28px;
+    margin: 7px 33px;
+    margin-top: 10px;
 }

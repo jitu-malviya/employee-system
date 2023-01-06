@@ -53,6 +53,8 @@ import { CompanyComponent } from './components/company/company.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AddemployeeComponent } from './components/addemployee/addemployee.component';
 import { DeleteEmployeeComponent } from './components/delete-employee/delete-employee.component';
+import { ViewEmployeeComponent } from './components/company/view-employee/view-employee.component';
+import { AddEmployeeComponent } from './components/company/add-employee/add-employee.component';
 // import { environment } from '../assets/environments/environment';
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { DeleteEmployeeComponent } from './components/delete-employee/delete-emp
     CompanyComponent,
     SidebarComponent,
     AddemployeeComponent,
-    DeleteEmployeeComponent
+    DeleteEmployeeComponent,
+    ViewEmployeeComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,

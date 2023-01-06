@@ -1,4 +1,4 @@
- import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Employee } from './interface/employee';
@@ -8,7 +8,7 @@ import { Employee } from './interface/employee';
 export class DataService {
   constructor(private afs: AngularFirestore, private fireStorage: AngularFireStorage) { }
   // add employee
-  addEmployee(employee: Employee) {
+  addEmployee(employee: any) {
     employee.id = this.afs.createId();
     return this.afs.collection('/Employees').add(employee);
   }
@@ -18,13 +18,16 @@ export class DataService {
   }
 
   // delete employee
-  deleteEmployee(id: string) {
-    return this.afs.doc('/Employees/' +id).delete();
+  deleteEmployee(id: any) {
+    return this.afs.doc('/Employees/' + id).delete();
   }
   //update employee
-  updateEmployee(employee: Employee) {
+  updateEmployee(employee: any) {
     // this.deleteEmployee(employee);
     // this.addEmployee(employee);
-    return this.afs.doc('/Employees/'  + employee.id ).update(employee);
+    return this.afs.doc('/Employees/' + employee.id).update(employee);
+  }
+  getEmployeeById(id: string) {
+    return this.afs.doc('/Employees/' + id).valueChanges();
   }
 }

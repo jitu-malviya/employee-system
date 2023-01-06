@@ -10,13 +10,13 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class AddemployeeComponent {
 
   form !: FormGroup;
-  id! : string;
+  id! : number;
   title !: string;
   name !: string;
   mobile !: string;
   email !: string;
   gender !: string;
-  department !: string;
+  designation !: string;
   qualification!:string;
   joindate !: Date;
   buttonName!: string;
@@ -24,7 +24,7 @@ export class AddemployeeComponent {
   dialog: any;
   datepicker2: any;
   qualifications: string[] = ['Bachlor of Engineering', 'Bachelors in Computer Application', 'Information Technology', 'Computer Engineering', ];
-  departments: string[] = ['Angular Developer', 'React Developer', 'Asp.NET Developer', 'Python Developer', 'UI-UX Developer'];
+  designations: string[] = ['Angular Developer', 'React Developer', 'Asp.NET Developer', 'Python Developer', 'UI-UX Developer'];
 
 
   constructor(
@@ -38,7 +38,7 @@ export class AddemployeeComponent {
     this.mobile = data.mobile;
     this.email = data.email;
     this.gender = data.gender;
-    this.department = data.department;
+    this.designation = data.designation;
     this.joindate = data.joindate;
     this.qualification = data.qualification;
     this.buttonName = data.buttonName;
@@ -48,15 +48,18 @@ export class AddemployeeComponent {
     this.form = this.fb.group({
       id:[this.id,[]],
       name: [this.name, [Validators.required]],
-      mobile: [this.mobile, [Validators.required, Validators.maxLength(10), Validators.minLength(10),]],
+      mobile: [this.mobile, [Validators.required, Validators.pattern("[0-9 ]{10}"), Validators.minLength(10),]],
       email: [this.email, [Validators.required, Validators.email]],
       gender: [this.gender, [Validators.required]],
-      department: [this.department, [Validators.required]],
+      designation: [this.designation, [Validators.required]],
       joindate: [this.joindate, [Validators.required]],
       qualification: [this.qualification, [Validators.required]],
 
 
     })
+  }
+  get f() {
+    return this.form.controls;
   }
   registeEmployee() {
     this.dailofRef.close(this.form.value);

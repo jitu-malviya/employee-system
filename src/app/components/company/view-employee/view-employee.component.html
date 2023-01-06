@@ -1,0 +1,33 @@
+<h2 style="font-weight: 700; color: red;" class="m-3">Employee Information</h2>
+<mat-card class="m-3">
+    <mat-card-title class="title">
+        {{employeeObj?.name}}
+    </mat-card-title>
+    <mat-card-subtitle>
+        {{employeeObj?.qualification}}
+    </mat-card-subtitle>
+    <mat-divider></mat-divider>
+
+    <div class="row pt-3">
+        <div class="col-md-6">
+            <mat-card-content class="content">
+                <span> Email : </span> {{employeeObj.email}} <br>
+                <span> Mobile : </span> {{employeeObj.mobile}} <br>
+
+            </mat-card-content>
+        </div>
+        <div class="col-md-6">
+            <mat-card-content class="content">
+                <span> Gender : </span> {{employeeObj.gender}} <br>
+                <span> Designation : </span> {{employeeObj.designation}}
+            </mat-card-content>
+        </div>
+        <div class="col-md-6">
+            <mat-card-content class="content">
+                <span> joindate : </span> {{employeeObj.joindate.toDate() | date}} <br>
+            </mat-card-content>
+        </div>
+    </div>
+    <br>
+    <button class="back"  mat-raised-button color="warn" routerLink="/dashboard/company">Back</button>
+</mat-card>

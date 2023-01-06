@@ -16,8 +16,8 @@ import { MatSort } from '@angular/material/sort';
 })
 export class CompanyComponent {
   employeeArr: Employee[] = [];
-
-  displayedColumns: string[] = ['id','name', 'mobile', 'email', 'gender','department', 'joindate', 'qualification', 'action'];
+  id: any;
+  displayedColumns: string[] = ['id', 'name', 'mobile', 'email', 'gender', 'designation', 'joindate', 'qualification', 'action'];
   dataSource!: MatTableDataSource<Employee>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -68,19 +68,19 @@ export class CompanyComponent {
     })
   }
 
-  editEmployee(row:any) {
-    if(row.id == null || row.name == null){
+  editEmployee(row: any) {
+    if (row.id == null || row.name == null) {
       return;
     }
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = row;
-    dialogConfig.data.title ="Edit Employee";
-    dialogConfig.data.buttonName ="update";
+    dialogConfig.data.title = "Edit Employee";
+    dialogConfig.data.buttonName = "update";
     // dialogConfig.data.joindate = row.joindate.toDate();
     const dialogRef = this.dialog.open(AddemployeeComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(data => { 
+    dialogRef.afterClosed().subscribe(data => {
       if (data) {
         // console.log("Employee Attendance List: ", data);
         this.dataApi.updateEmployee(data);
@@ -95,7 +95,7 @@ export class CompanyComponent {
         data.id = e.payload.doc.id;
         return data;
       })
-  
+
       this.dataSource = new MatTableDataSource(this.employeeArr);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -105,6 +105,9 @@ export class CompanyComponent {
     this._snackBar.open(message, action);
   }
 
+  viewEmployee(row: any) {
+    window.open('/dashboard/company/' + row.id, '_blank');
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

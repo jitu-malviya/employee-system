@@ -1,4 +1,4 @@
-<div class="dialog-header">
+<div class="dialog-header"  style=" color: aliceblue; background-color:rgb(11, 214, 8);">
     <h3>{{title}}</h3>
 </div>
 <mat-divider></mat-divider>
@@ -9,6 +9,8 @@
             <input matInput placeholder="enter your Id" formControlName="id" required="">
             <mat-error *ngIf="form.get('id')?.invalid || form.get('id')?.dirty || form.get('id')?.touched"> Enter
                 full id</mat-error>
+           
+
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Full Name:</mat-label>
@@ -29,8 +31,10 @@
             <input matInput placeholder="xyz@gmail.com" formControlName="email" required="">
             <mat-error *ngIf="form.get('email')?.invalid || form.get('email')?.dirty || form.get('email')?.touched">
                 Enter email address</mat-error>
-
+              
         </mat-form-field>
+    
+
         <br>
         <mat-radio-group class="example-full-width" area-label="select a gender" formControlName="gender">
             <mat-label>Select An Options</mat-label>
@@ -68,13 +72,13 @@
             </mat-select>
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>department:</mat-label>
-            <mat-select formControlName="department" required="">
-                <mat-option *ngFor="let department of departments" [value]="department">
-                    {{department}}
+            <mat-label>Designation:</mat-label>
+            <mat-select formControlName="designation" required="">
+                <mat-option *ngFor="let designation of designations" [value]="designation">
+                    {{designation}}
                 </mat-option>
                 <mat-error
-                    *ngIf="form.get('department')?.invalid || form.get('department')?.dirty || form.get('department')?.touched">
+                    *ngIf="form.get('designation')?.invalid || form.get('designation')?.dirty || form.get('designation')?.touched">
                 </mat-error>
             </mat-select>
         </mat-form-field>
@@ -82,9 +86,9 @@
     </form>
 
 </div>
-<div class="dialog-footer">
+<div class="dialog-footer"  style=" color: aliceblue; background-color:rgb(11, 214, 8);">
     <div class="button-group">
-        <button mat-raised-button color="warn" (click)="registeEmployee()" [disabled]="form.invalid">
+        <button mat-raised-button color="accent" (click)="registeEmployee()" [disabled]="form.invalid">
             {{buttonName}}</button>
 
         <button mat-raised-button color="primary" (click)="cancelEmployee()">Delete</button>

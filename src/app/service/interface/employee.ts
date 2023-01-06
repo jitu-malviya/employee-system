@@ -1,13 +1,13 @@
 export interface Employee {
 
     action:string,
-    id:string,
+    id:number,
     title : string;
     name : string;
     mobile : string;
     email : string;
     gender : string;
-    department : string;
+    designation : string;
     joindate : Date;
     qualification: string;
     buttonName:string;
