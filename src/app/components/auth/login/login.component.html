@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+<mat-card>
+
+        <div class="dialog-body-content">
+            <form class="example-form" [formGroup]="form">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label> email:</mat-label>
+                    <input matInput placeholder="xyz@gmail.com" formControlName="email" required="">
+                    <mat-error
+                        *ngIf="form.get('email')?.invalid || form.get('email')?.dirty || form.get('email')?.touched">
+                        Enter email address</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label> password:</mat-label>
+                        <input matInput placeholder="password" formControlName="password" required="" type="password">
+                        <mat-error
+                            *ngIf="form.get('password')?.invalid || form.get('password')?.dirty || form.get('password')?.touched">
+                            Enter password </mat-error>
+
+                    </mat-form-field>
+             
+
+                <button mat-raised-button color="accent" (click)="login()" [disabled]="form.invalid">LoginEmployee</button>
+            </form>
+        </div>
+
+
+
+    </mat-card>
+    <div class="col"></div>
+</div>

@@ -55,6 +55,7 @@ import { AddemployeeComponent } from './components/addemployee/addemployee.compo
 import { DeleteEmployeeComponent } from './components/delete-employee/delete-employee.component';
 import { ViewEmployeeComponent } from './components/company/view-employee/view-employee.component';
 import { AddEmployeeComponent } from './components/company/add-employee/add-employee.component';
+import { LoginComponent } from './components/auth/login/login.component';
 // import { environment } from '../assets/environments/environment';
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { AddEmployeeComponent } from './components/company/add-employee/add-empl
     AddemployeeComponent,
     DeleteEmployeeComponent,
     ViewEmployeeComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { AuthService } from './service/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'employee-system';
+  userLoggedIn: boolean = false;
+  constructor(private authApi: AuthService) {
+
+  }
+  ngOnInit() {
+     this.userLoggedIn = this.authApi.isUserLoggedIn();
+  }
 }

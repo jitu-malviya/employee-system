@@ -21,9 +21,20 @@
     }
 
 }
-h1#mat-mdc-dialog-title-1 {
-    color: red;
-    font-size: 28px;
-    margin: 7px 33px;
-    margin-top: 10px;
+// h1#mat-mdc-dialog-title-1 {
+//     color: red;
+//     font-size: 28px;
+//     margin: 7px 33px;
+//     margin-top: 10px;
+// }
+.main{
+    padding: 19px;
+}
+.dialog-header
+{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
 }

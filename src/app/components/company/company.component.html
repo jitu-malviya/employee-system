@@ -3,10 +3,10 @@
 <div class="container">
 <div class="row">
   <div class=" col-sm-6 col-md-4">
-    <mat-card class="add-com text-center" (click)="addemployee()" style=" color: aliceblue; background-color:rgb(11, 214, 8);">
+    <mat-card class="add-com text-center" (click)="addemployee()" >
       <mat-card-content>
         <h3> Add Employee </h3>
-        <mat-icon>account_balance</mat-icon>
+        <mat-icon style=" color:rgb(255, 33, 118); "  >account_balance</mat-icon>
       </mat-card-content>
     </mat-card>
   </div>
@@ -14,8 +14,11 @@
 </div>
 
 <mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  
+  <div class="search">
+  <mat-icon>search</mat-icon>
+  <input matInput (keyup)="applyFilter($event)"   placeholder="Ex. Search" #input>
+  </div>
 </mat-form-field>
 
 
